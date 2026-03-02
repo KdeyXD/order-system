@@ -17,7 +17,6 @@ namespace DecoratorDrink.Logic.Composite
         public decimal Total => UnitPrice * Quantity;
 
         public decimal GetTotalPrice() => Total;
-        //public decimal GetTotalPrice() => Drink.GetPrice() * Quantity;
         public string GetDescription() => Drink.GetDescription();
         public decimal GetUnitPrice() => Drink.GetPrice();
     }

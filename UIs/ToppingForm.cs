@@ -1,6 +1,7 @@
 ﻿using DecoratorDrink.Logic.Composite;
 using DecoratorDrink.Logic.Decotators;
 using DecoratorDrink.Model;
+using DrinkOrderSystem.Logic.Decotators;
 
 namespace DrinkOrderSystem.UIs
 {
@@ -10,7 +11,6 @@ namespace DrinkOrderSystem.UIs
 
         public OrderItem CreatedOrderItem { get; private set; }
 
-        // ✅ ADD MODE
         public ToppingForm(Drink drink)
         {
             InitializeComponent();
@@ -19,7 +19,6 @@ namespace DrinkOrderSystem.UIs
             lblDrinkName.Text = drink.Name;
         }
 
-        // ✅ UPDATE MODE
         public ToppingForm(OrderItem orderItem)
         {
             InitializeComponent();
@@ -59,6 +58,12 @@ namespace DrinkOrderSystem.UIs
 
             if (chkSugar.Checked)
                 drink = new SugarDecorator(drink);
+
+            if(chkCream.Checked)
+                drink = new CreamDecorator(drink);
+
+            if(chkCaramel.Checked)
+                drink = new CaramelDecorator(drink);
 
             int qty = (int)numericQty.Value;
 

@@ -3,17 +3,9 @@
     public abstract class DrinkDecorator : IDrink
     {
         protected IDrink drink;
-
-        public DrinkDecorator(IDrink drink)
-        {
-            this.drink = drink;
-        }
-
+        public DrinkDecorator(IDrink drink) { this.drink = drink; }
         public virtual string GetDescription() => drink.GetDescription() + " +";
         public virtual decimal GetPrice() => drink.GetPrice();
-        public IDrink GetInnerDrink()
-        {
-            return drink;
-        }
+        public IDrink GetInnerDrink() => drink;
     }
 }
