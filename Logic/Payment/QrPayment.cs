@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MiniPOS.Logic.Payment
+﻿namespace MiniPOS.Logic.Payment
 {
     public class QrPayment : IPaymentStrategy
     {
         public bool Pay(decimal amount)
         {
-            MessageBox.Show($"Paid ${amount:0.00} by QR");
+            // Simulate showing a QR code and waiting for confirmation
+            MessageBox.Show($"Present QR code for ${amount:0.00} payment (simulated)");
             return true;
         }
     }

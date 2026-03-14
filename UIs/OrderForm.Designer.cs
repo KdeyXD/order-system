@@ -37,17 +37,20 @@
             panel8 = new Panel();
             label2 = new Label();
             panel4 = new Panel();
+            panel9 = new Panel();
             panel7 = new Panel();
             dgvDrinks = new DataGridView();
+            panel12 = new Panel();
+            btnAdd = new Button();
             panel6 = new Panel();
             txtSearch = new TextBox();
             label1 = new Label();
             panel3 = new Panel();
             btnUpdate = new Button();
-            btnAdd = new Button();
             btnProcess = new Button();
             btnRemove = new Button();
             panel2 = new Panel();
+            label3 = new Label();
             btnClear = new Button();
             btnBack = new Button();
             panel1.SuspendLayout();
@@ -57,8 +60,10 @@
             panel10.SuspendLayout();
             panel8.SuspendLayout();
             panel4.SuspendLayout();
+            panel9.SuspendLayout();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDrinks).BeginInit();
+            panel12.SuspendLayout();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -156,7 +161,7 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(panel7);
+            panel4.Controls.Add(panel9);
             panel4.Controls.Add(panel6);
             panel4.Dock = DockStyle.Left;
             panel4.Location = new Point(0, 101);
@@ -164,14 +169,24 @@
             panel4.Size = new Size(717, 385);
             panel4.TabIndex = 2;
             // 
+            // panel9
+            // 
+            panel9.Controls.Add(panel7);
+            panel9.Controls.Add(panel12);
+            panel9.Dock = DockStyle.Fill;
+            panel9.Location = new Point(0, 45);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(717, 340);
+            panel9.TabIndex = 2;
+            // 
             // panel7
             // 
             panel7.Controls.Add(dgvDrinks);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(0, 45);
+            panel7.Location = new Point(0, 0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(10);
-            panel7.Size = new Size(717, 340);
+            panel7.Size = new Size(717, 260);
             panel7.TabIndex = 2;
             // 
             // dgvDrinks
@@ -186,8 +201,32 @@
             dgvDrinks.ReadOnly = true;
             dgvDrinks.RowHeadersWidth = 51;
             dgvDrinks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDrinks.Size = new Size(697, 320);
+            dgvDrinks.Size = new Size(697, 240);
             dgvDrinks.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(btnAdd);
+            panel12.Dock = DockStyle.Bottom;
+            panel12.Location = new Point(0, 260);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(717, 80);
+            panel12.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.BackColor = Color.Sienna;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btnAdd.ForeColor = Color.SandyBrown;
+            btnAdd.Location = new Point(567, 12);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(140, 60);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // panel6
             // 
@@ -223,7 +262,6 @@
             // 
             panel3.BackColor = Color.SandyBrown;
             panel3.Controls.Add(btnUpdate);
-            panel3.Controls.Add(btnAdd);
             panel3.Controls.Add(btnProcess);
             panel3.Controls.Add(btnRemove);
             panel3.Dock = DockStyle.Bottom;
@@ -246,20 +284,6 @@
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.Sienna;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.SandyBrown;
-            btnAdd.Location = new Point(12, 26);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(140, 60);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnProcess
             // 
@@ -294,6 +318,7 @@
             // panel2
             // 
             panel2.BackColor = Color.SandyBrown;
+            panel2.Controls.Add(label3);
             panel2.Controls.Add(btnClear);
             panel2.Controls.Add(btnBack);
             panel2.Dock = DockStyle.Top;
@@ -301,6 +326,18 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1289, 101);
             panel2.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.SaddleBrown;
+            label3.Location = new Point(602, 28);
+            label3.Name = "label3";
+            label3.Size = new Size(242, 41);
+            label3.TabIndex = 5;
+            label3.Text = "SLS CAFE GEN Z";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnClear
             // 
@@ -340,6 +377,7 @@
             Name = "OrderForm";
             Text = "OrderForm";
             WindowState = FormWindowState.Maximized;
+            FormClosing += OrderForm_FormClosing;
             Load += OrderForm_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
@@ -350,8 +388,10 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             panel4.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDrinks).EndInit();
+            panel12.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel3.ResumeLayout(false);
@@ -383,5 +423,8 @@
         private Label label1;
         private Panel panel11;
         private Panel panel10;
+        private Panel panel9;
+        private Panel panel12;
+        private Label label3;
     }
 }

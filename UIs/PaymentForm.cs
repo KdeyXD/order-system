@@ -28,6 +28,8 @@ namespace DrinkOrderSystem.UIs
                 selectedType = PaymentType.Cash;
             else if (rbCreditCard.Checked)
                 selectedType = PaymentType.Card;
+            else if (rbMobileWallet.Checked)
+                selectedType = PaymentType.MobileWallet;
             else
                 selectedType = PaymentType.QR;
 
@@ -45,6 +47,18 @@ namespace DrinkOrderSystem.UIs
             else
             {
                 MessageBox.Show("Payment failed!");
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Cancel payment safely
+            var confirmed = MessageBox.Show("Cancel payment?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmed == DialogResult.Yes)
+            {
+                // set dialog result as Cancel so caller can know payment was cancelled
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
             }
         }
     }

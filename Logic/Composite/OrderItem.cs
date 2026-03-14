@@ -4,8 +4,6 @@ namespace DecoratorDrink.Logic.Composite
     public class OrderItem : IOrder
     {
         public IDrink Drink { get; set; }
-        public int Quantity { get; set; }
-
         public OrderItem(IDrink drink, int quantity)
         {
             Drink = drink;
@@ -13,6 +11,8 @@ namespace DecoratorDrink.Logic.Composite
         }
 
         public string Name => Drink.GetDescription();
+        public int Quantity { get; set; }
+
         public decimal UnitPrice => Drink.GetPrice();
         public decimal Total => UnitPrice * Quantity;
 

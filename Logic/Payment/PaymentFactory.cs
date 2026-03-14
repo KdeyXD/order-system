@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MiniPOS.Logic.Payment
+﻿namespace MiniPOS.Logic.Payment
 {
     public static class PaymentFactory
     {
@@ -13,6 +7,7 @@ namespace MiniPOS.Logic.Payment
             return type switch
             {
                 PaymentType.Cash => new CashPayment(),
+                PaymentType.MobileWallet => new QrPayment(),
                 PaymentType.Card => new CardPayment(),
                 PaymentType.QR => new QrPayment(),
                 _ => throw new NotImplementedException()

@@ -34,6 +34,7 @@
             btnPay = new Button();
             rbQr = new RadioButton();
             rbCreditCard = new RadioButton();
+            rbMobileWallet = new RadioButton();
             lblTotalAmount = new Label();
             rbCash = new RadioButton();
             panel1.SuspendLayout();
@@ -46,6 +47,7 @@
             panel1.Controls.Add(btnPay);
             panel1.Controls.Add(rbQr);
             panel1.Controls.Add(rbCreditCard);
+            panel1.Controls.Add(rbMobileWallet);
             panel1.Controls.Add(lblTotalAmount);
             panel1.Controls.Add(rbCash);
             panel1.Dock = DockStyle.Fill;
@@ -71,6 +73,7 @@
             btnBack.TabIndex = 12;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // btnPay
             // 
@@ -92,6 +95,17 @@
             rbQr.TabStop = true;
             rbQr.Text = "KHQR";
             rbQr.UseVisualStyleBackColor = true;
+            // 
+            // rbMobileWallet
+            // 
+            rbMobileWallet.AutoSize = true;
+            rbMobileWallet.Location = new Point(28, 203);
+            rbMobileWallet.Name = "rbMobileWallet";
+            rbMobileWallet.Size = new Size(112, 24);
+            rbMobileWallet.TabIndex = 11;
+            rbMobileWallet.TabStop = true;
+            rbMobileWallet.Text = "Mobile Wallet";
+            rbMobileWallet.UseVisualStyleBackColor = true;
             // 
             // rbCreditCard
             // 
@@ -145,6 +159,7 @@
         private Button btnPay;
         private RadioButton rbQr;
         private RadioButton rbCreditCard;
+        private RadioButton rbMobileWallet;
         private Label lblTotalAmount;
         private RadioButton rbCash;
     }

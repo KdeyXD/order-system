@@ -59,10 +59,10 @@ namespace DrinkOrderSystem.UIs
             if (chkSugar.Checked)
                 drink = new SugarDecorator(drink);
 
-            if(chkCream.Checked)
+            if (chkCream.Checked)
                 drink = new CreamDecorator(drink);
 
-            if(chkCaramel.Checked)
+            if (chkCaramel.Checked)
                 drink = new CaramelDecorator(drink);
 
             int qty = (int)numericQty.Value;
@@ -71,6 +71,11 @@ namespace DrinkOrderSystem.UIs
 
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

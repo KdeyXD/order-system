@@ -136,6 +136,7 @@
             btnBack.TabIndex = 2;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // btnAddToOrder
             // 

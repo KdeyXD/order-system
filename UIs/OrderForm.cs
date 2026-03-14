@@ -13,7 +13,7 @@ namespace DrinkOrderSystem.UIs
         private readonly Order _order;
         private readonly Form _mainForm;
         private List<Drink> _allDrinks;
-
+        private bool _isMainForm = false; // Flag to indicate if this is the main form
         #endregion
 
         #region Constructor
@@ -38,8 +38,9 @@ namespace DrinkOrderSystem.UIs
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Close();
+            _isMainForm = true;
             _mainForm.Show();
+            Close();
         }
 
         #endregion
@@ -187,5 +188,13 @@ namespace DrinkOrderSystem.UIs
         }
 
         #endregion
+
+        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_isMainForm && e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();   // Only exit if NOT logging out
+            }
+        }
     }
 }
